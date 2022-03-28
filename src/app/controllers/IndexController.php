@@ -14,6 +14,7 @@ class IndexController extends Controller
     public function logoutAction()
     {
         $this->session->remove('userDetail');
+        $this->cookies->get('login-action')->delete();
         return $this->response->redirect('/');
     }
 }
