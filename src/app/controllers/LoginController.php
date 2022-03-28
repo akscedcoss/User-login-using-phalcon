@@ -54,11 +54,16 @@ class LoginController extends Controller
         // if user email and password is correct we need to create session
         $this->session->set('userDetail', (object)$check[0]);
         // if remebr me button set cookie 
-        $this->cookies->set(   
-            "login-action",   
-            json_encode(["email"=>$check[0]->email ,"name"=>$check[0]->name]),   
-            time() + 15 * 86400   
-         );   
+        if($this->request->getPost()['chk'])
+        {
+            $this->cookies->set(   
+                "login-action",   
+                json_encode(["email"=>$check[0]->email ,"name"=>$check[0]->name]),   
+                time() + 15 * 86400   
+             );  
+            
+        }
+ 
         // redirect to the dashboard 
         return $this->response->redirect('/');
 

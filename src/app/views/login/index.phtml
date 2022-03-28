@@ -13,6 +13,10 @@
         <?php echo $this->tag->textField("password"); ?>
         </p> 
         <p>
+        <?php echo "Remember me ".$this->tag->checkField(["chk", "value" => "1"]); ?>
+        </p>
+        
+        <p>
         <?php echo $this->tag->submitButton("Login"); ?>
     </p>
     </form>
