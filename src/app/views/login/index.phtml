@@ -3,5 +3,18 @@
         <h2>
             Do login
         </h2>
+        <?php echo $this->tag->form("login/login"); ?>
+        <p>
+        <label for="email">E-Mail</label>
+        <?php echo $this->tag->textField("email"); ?>
+        </p> 
+        <p>
+        <label for="email">Password</label>
+        <?php echo $this->tag->textField("password"); ?>
+        </p> 
+        <p>
+        <?php echo $this->tag->submitButton("Login"); ?>
+    </p>
+    </form>
     </body>
 </html>

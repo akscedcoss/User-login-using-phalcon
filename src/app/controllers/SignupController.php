@@ -6,7 +6,11 @@ class SignupController extends Controller
 {
 
     public function IndexAction()
-    {
+    { 
+        if( $this->session->has('userDetail'))
+        {
+            return $this->response->redirect('/');
+        }
     }
 
     public function registerAction()

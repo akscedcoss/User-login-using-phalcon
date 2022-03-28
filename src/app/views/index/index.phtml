@@ -4,7 +4,27 @@ echo "<h1>Hello World</h1>";
 
 echo PHP_EOL;
 
-echo $this->tag->linkTo(
-    'signup',
-    'Sign Up Here!'
-);
+
+
+if( !$this->session->has('userDetail'))
+{
+    echo $this->tag->linkTo(
+        'signup',
+        'Sign Up Here!'
+    );
+    echo "<br>";
+    echo $this->tag->linkTo(
+        'login',
+        'Login Here!'
+    );
+    // return $this->response->redirect('/');
+}
+else{
+
+    echo "Hey ! <br>".$this->session->userDetail->name;
+   echo "<br>".$this->session->userDetail->email;
+    echo $this->tag->linkTo(
+        '/index/logout',
+        '<br>Logout '
+    );
+}
